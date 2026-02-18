@@ -1,0 +1,32 @@
+[
+  {
+    "course": "CS4100",
+    "note": "Homework1 is due on 19",
+    "user": "name@csustan.edu"
+  },
+  {
+    "course": "CS4100",
+    "note": "Three hours a week",
+    "user": "name@csustan.edu"
+  },
+  {
+    "course": "CS 4100",
+    "note": "hello",
+    "user": "name@csustan.edu"
+  },
+  {
+    "course": "CS 4100",
+    "note": "hello",
+    "user": "name@csustan.edu"
+  },
+  {
+    "course": "CS 4100",
+    "note": "hello",
+    "user": "name@csustan.edu"
+  },
+  {
+    "course": "CS4100",
+    "note": "Three hours a week",
+    "user": "name@csustan.edu"
+  }
+]
