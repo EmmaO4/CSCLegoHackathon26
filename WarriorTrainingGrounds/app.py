@@ -4,11 +4,8 @@ import uuid
 
 app = Flask(__name__)
 
-app.secret_key = " "
+# will add scrt key, clientID, clientScrt, tenantID
 
-CLIENT_ID = " "
-CLIENT_SECRET = " "
-TENANT_ID = " "
 
 AUTHORITY = f"https://login.microsoftonline.com/{TENANT_ID}"
 REDIRECT_PATH = "/callback"
