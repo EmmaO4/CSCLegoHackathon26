@@ -1,18 +1,22 @@
-from flask import Flask, render_template, request, redirect, url_for, session
+from flask import Flask, render_template, redirect, url_for, session, request
 import msal
 import uuid
+import os
+from dotenv import load_dotenv
+
+
+load_dotenv()
 
 app = Flask(__name__)
 
-app.secret_key = " "
-
-CLIENT_ID = " "
-CLIENT_SECRET = " "
-TENANT_ID = " "
+app.secret_key = os.environ.get("FLASK_SECRET_KEY")
+CLIENT_ID = os.environ.get("AZURE_CLIENT_ID")
+CLIENT_SECRET = os.environ.get("AZURE_CLIENT_SECRET")
+TENANT_ID = os.environ.get("AZURE_TENANT_ID")
 
 AUTHORITY = f"https://login.microsoftonline.com/{TENANT_ID}"
-REDIRECT_PATH = "/callback"
-SCOPE = ["User.Read"]
+REDIRECT_PATH = "/callback"  
+SCOPE = ["User.Read"]  
 
 @app.route("/")
 def home():
@@ -20,7 +24,7 @@ def home():
 
 @app.route("/login")
 def login():
-    session["state"] = str(uuid.uuid4())
+    session["state"] = str(uuid.uuid4())  
     auth_url = _build_msal_app().get_authorization_request_url(
         SCOPE,
         state=session["state"],
@@ -42,20 +46,20 @@ def callback():
 
     if "id_token_claims" in result:
         session["user"] = result["id_token_claims"]
-        return redirect("/dashboard")
+        return redirect(url_for("dashboard"))
 
     return "Login failed"
 
 @app.route("/dashboard")
 def dashboard():
     if "user" not in session:
-        return redirect("/login")
-    return f"Welcome {session['user']['name']}"
+        return redirect(url_for("login"))
+    return render_template("dashboard.html", user=session["user"])
 
 @app.route("/logout")
 def logout():
     session.clear()
-    return redirect("/")
+    return redirect(url_for("home"))
 
 def _build_msal_app():
     return msal.ConfidentialClientApplication(
@@ -63,5 +67,6 @@ def _build_msal_app():
         authority=AUTHORITY,
         client_credential=CLIENT_SECRET
     )
+
 if __name__ == "__main__":
     app.run(debug=True)
