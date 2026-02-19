@@ -4,8 +4,11 @@ import uuid
 
 app = Flask(__name__)
 
-# will add scrt key, clientID, clientScrt, tenantID
+app.secret_key = " "
 
+CLIENT_ID = " "
+CLIENT_SECRET = " "
+TENANT_ID = " "
 
 AUTHORITY = f"https://login.microsoftonline.com/{TENANT_ID}"
 REDIRECT_PATH = "/callback"
@@ -58,7 +61,7 @@ def _build_msal_app():
     return msal.ConfidentialClientApplication(
         CLIENT_ID,
         authority=AUTHORITY,
-        client_credential= #scrt here
+        client_credential=CLIENT_SECRET
     )
 if __name__ == "__main__":
     app.run(debug=True)
