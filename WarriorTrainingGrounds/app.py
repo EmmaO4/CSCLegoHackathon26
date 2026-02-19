@@ -4,11 +4,11 @@ import uuid
 
 app = Flask(__name__)
 
-app.secret_key = "super_secret_key_for_learning"
+app.secret_key = " "
 
-CLIENT_ID = "a96c35d9-7391-44f6-83f4-efec1fe87511"
-CLIENT_SECRET = "a1m8Q~La1-rA5T5jjHsD1VlRij3mQ7Nxip-IjcPr"
-TENANT_ID = "8d9ed053-bd4e-46e4-b93c-8d8f289b9322"
+CLIENT_ID = " "
+CLIENT_SECRET = " "
+TENANT_ID = " "
 
 AUTHORITY = f"https://login.microsoftonline.com/{TENANT_ID}"
 REDIRECT_PATH = "/callback"
