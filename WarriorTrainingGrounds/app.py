@@ -58,7 +58,7 @@ def _build_msal_app():
     return msal.ConfidentialClientApplication(
         CLIENT_ID,
         authority=AUTHORITY,
-        client_credential=CLIENT_SECRET
+        client_credential= #scrt here
     )
 if __name__ == "__main__":
     app.run(debug=True)
