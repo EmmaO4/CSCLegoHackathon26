@@ -9,16 +9,17 @@ Track 2:
     Your second idea aligns perfectly.
 
     In 2 days you can build:
-        User login
-        Add classes
-        Assign units
+        R:
+            User login  
+            Add classes  
+            Assign units 
         Auto workload calculation
         Weekly progress dashboard
         Burnout score indicator
         Smart reminders
         Motivational goal tracking
         Group study scheduler
-        That’s enough technical depth.
+        
         You can even add:
         Progress visualization chart
         AI-generated motivational message
