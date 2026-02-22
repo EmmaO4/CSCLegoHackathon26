@@ -1,4 +1,5 @@
 .env
+init_ideation.txt
 
 __pycache__/
 *.pyc
